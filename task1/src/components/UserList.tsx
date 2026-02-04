@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useDeferredValue } from "react";
+import { useDeferredValue, useState } from "react";
 import type { User } from "@/types/user";
 import UserCard from "./UserCard";
 
 interface Props {
     users: User[];
+    onEdit: (user: User) => void;
 }
 
-export default function UserList({ users }: Props) {
+export default function UserList({ users, onEdit }: Props) {
     const [search, setSearch] = useState("");
     const deferredSearch = useDeferredValue(search);
 
@@ -27,7 +28,11 @@ export default function UserList({ users }: Props) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filteredUsers.map(user => (
-                    <UserCard key={user.id} user={user} />
+                    <UserCard
+                        key={user.id}
+                        user={user}
+                        onEdit={onEdit}
+                    />
                 ))}
             </div>
         </div>
