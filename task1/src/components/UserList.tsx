@@ -1,5 +1,3 @@
-"use client";
-
 import { useDeferredValue, useState } from "react";
 import type { User } from "@/types/user";
 import UserCard from "./UserCard";
