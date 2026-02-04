@@ -41,7 +41,6 @@ export default function UserFormDialog({
     const [email, setEmail] = useState("");
     const [role, setRole] = useState<User["role"]>("User");
 
-    // Populate form when editing
     useEffect(() => {
         if (user) {
             setName(user.name);
