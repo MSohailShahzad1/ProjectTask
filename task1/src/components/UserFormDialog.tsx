@@ -20,15 +20,18 @@ import {
 } from "@/components/ui/select";
 
 interface Props {
-    triggerLabel: string;
-    user?: User; // if present → edit mode
+    triggerLabel?: string;
+    trigger?: React.ReactNode;
+    user?: User;
     onSave: (user: User) => void;
 }
+
 
 const ROLES: User["role"][] = ["Admin", "User", "Editor"];
 
 export default function UserFormDialog({
     triggerLabel,
+    trigger,
     user,
     onSave
 }: Props) {
@@ -64,9 +67,13 @@ export default function UserFormDialog({
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={user ? "outline" : "default"}>
-                    {triggerLabel}
-                </Button>
+                {trigger ? (
+                    trigger
+                ) : (
+                    <Button>
+                        {triggerLabel}
+                    </Button>
+                )}
             </DialogTrigger>
 
             <DialogContent className="sm:max-w-md">
