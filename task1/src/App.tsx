@@ -1,11 +1,15 @@
-import { Button } from "@/components/ui/button"
+import Header from "@/components/Header"
+import ProductGrid from "@/components/ProductGrid"
+import CartSheet from "@/components/CardSheet"
 
-function App() {
+export default function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
+    <>
+      <Header />
+      <main className="p-6">
+        <ProductGrid />
+      </main>
+      <CartSheet />
+    </>
   )
 }
-
-export default App
